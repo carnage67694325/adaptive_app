@@ -9,8 +9,7 @@ class GridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(.6),
-          borderRadius: BorderRadius.circular(8)),
+          color: Colors.grey, borderRadius: BorderRadius.circular(8)),
     );
   }
 }
