@@ -11,7 +11,13 @@ class CustomDrawerItem extends StatelessWidget {
         drawerItem.icon,
         // color: Colors.black,
       ),
-      title: Text(drawerItem.title),
+      title: Padding(
+        padding: const EdgeInsets.only(left: 16.0),
+        child: FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: Alignment.centerLeft,
+            child: Text(drawerItem.title)),
+      ),
       // textColor: Colors.black,
     );
   }

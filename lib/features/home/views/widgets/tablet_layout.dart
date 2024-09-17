@@ -14,10 +14,9 @@ class TabletLayout extends StatelessWidget {
             height: 16,
           ),
         ),
-        CustomList(),
+        SliverToBoxAdapter(child: CustomList()),
         CustomSliverList(),
       ],
     );
-    ();
   }
 }

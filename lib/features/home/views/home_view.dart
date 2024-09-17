@@ -23,32 +23,38 @@ class _HomeViewState extends State<HomeView> {
             isDrawerOpend = isOpened;
           });
         },
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          leading: IconButton(
-            onPressed: () {
-              scaffoldKey.currentState!.openDrawer();
-              if (scaffoldKey.currentState!.isDrawerOpen) {
-                setState(() {
-                  isDrawerOpend = true;
-                });
-              } else {
-                setState(() {
-                  isDrawerOpend = false;
-                });
-              }
-            },
-            icon: isDrawerOpend
-                ? const Icon(
-                    Icons.menu_open,
-                    color: Colors.white,
-                  )
-                : const Icon(
-                    Icons.menu,
-                    color: Colors.white,
-                  ),
-          ),
-        ),
+        appBar: buildAppBar(context),
         body: const HomeViewBody());
+  }
+
+  AppBar? buildAppBar(BuildContext context) {
+    return MediaQuery.of(context).size.width - 32 < 900
+        ? AppBar(
+            backgroundColor: Colors.black,
+            leading: IconButton(
+              onPressed: () {
+                scaffoldKey.currentState!.openDrawer();
+                if (scaffoldKey.currentState!.isDrawerOpen) {
+                  setState(() {
+                    isDrawerOpend = true;
+                  });
+                } else {
+                  setState(() {
+                    isDrawerOpend = false;
+                  });
+                }
+              },
+              icon: isDrawerOpend
+                  ? const Icon(
+                      Icons.menu_open,
+                      color: Colors.white,
+                    )
+                  : const Icon(
+                      Icons.menu,
+                      color: Colors.white,
+                    ),
+            ),
+          )
+        : null;
   }
 }
